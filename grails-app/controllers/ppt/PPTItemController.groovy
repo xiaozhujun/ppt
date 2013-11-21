@@ -1,6 +1,5 @@
 package ppt
 
-import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 
 class PPTItemController {
@@ -115,6 +114,7 @@ class PPTItemController {
            and{
                ge("endTime",new Date())
                le("startTime",new Date())
+               eq("shouldShow",true)
            }
            order("id","desc")
         };

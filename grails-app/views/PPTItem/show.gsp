@@ -22,12 +22,53 @@
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list PPTItem">
+
+                <g:if test="${PPTItemInstance?.title}">
+                    <li class="fieldcontain">
+                        <span id="title-label" class="property-label"><g:message code="PPTItem.title.label" default="Title" /></span>
+
+                        <span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${PPTItemInstance}" field="title"/></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${PPTItemInstance?.startTime}">
+                    <li class="fieldcontain">
+                        <span id="startTime-label" class="property-label"><g:message code="PPTItem.startTime.label" default="Start Time" /></span>
+
+                        <span class="property-value" aria-labelledby="startTime-label"><g:formatDate format="yyyy-MM-dd" date="${PPTItemInstance?.startTime}" /></span>
+
+                    </li>
+                </g:if>
+
+                <g:if test="${PPTItemInstance?.endTime}">
+                    <li class="fieldcontain">
+                        <span id="endTime-label" class="property-label"><g:message code="PPTItem.endTime.label" default="End Time" /></span>
+
+                        <span class="property-value" aria-labelledby="endTime-label"><g:formatDate format="yyyy-MM-dd" date="${PPTItemInstance?.endTime}" /></span>
+
+                    </li>
+                </g:if>
+
+                <li class="fieldcontain">
+                    <span id="shouldShow-label" class="property-label"><g:message code="PPTItem.shouldShow.label" default="Should Show" /></span>
+
+                    <span class="property-value" aria-labelledby="shouldShow-label">
+                        <g:if test="${PPTItemInstance?.shouldShow}">
+                            是
+                        </g:if>
+                        <g:else>
+                            否
+                        </g:else>
+                    </span>
+
+                </li>
 			
 				<g:if test="${PPTItemInstance?.content}">
 				<li class="fieldcontain">
 					<span id="content-label" class="property-label"><g:message code="PPTItem.content.label" default="Content" /></span>
 					
-						<span class="property-value" aria-labelledby="content-label"><g:fieldValue bean="${PPTItemInstance}" field="content"/></span>
+						<span class="property-value" aria-labelledby="content-label">${PPTItemInstance?.content}</span>
 					
 				</li>
 				</g:if>
@@ -36,56 +77,11 @@
 				<li class="fieldcontain">
 					<span id="createTime-label" class="property-label"><g:message code="PPTItem.createTime.label" default="Create Time" /></span>
 					
-						<span class="property-value" aria-labelledby="createTime-label"><g:formatDate date="${PPTItemInstance?.createTime}" /></span>
+						<span class="property-value" aria-labelledby="createTime-label"><g:formatDate format="yyyy-MM-dd hh:mm:ss" date="${PPTItemInstance?.createTime}" /></span>
 					
 				</li>
 				</g:if>
-			
-				<g:if test="${PPTItemInstance?.endTime}">
-				<li class="fieldcontain">
-					<span id="endTime-label" class="property-label"><g:message code="PPTItem.endTime.label" default="End Time" /></span>
-					
-						<span class="property-value" aria-labelledby="endTime-label"><g:formatDate date="${PPTItemInstance?.endTime}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${PPTItemInstance?.shouldShow}">
-				<li class="fieldcontain">
-					<span id="shouldShow-label" class="property-label"><g:message code="PPTItem.shouldShow.label" default="Should Show" /></span>
-					
-						<span class="property-value" aria-labelledby="shouldShow-label"><g:formatBoolean boolean="${PPTItemInstance?.shouldShow}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${PPTItemInstance?.startTime}">
-				<li class="fieldcontain">
-					<span id="startTime-label" class="property-label"><g:message code="PPTItem.startTime.label" default="Start Time" /></span>
-					
-						<span class="property-value" aria-labelledby="startTime-label"><g:formatDate date="${PPTItemInstance?.startTime}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${PPTItemInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="PPTItem.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${PPTItemInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${PPTItemInstance?.type}">
-				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="PPTItem.type.label" default="Type" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${PPTItemInstance}" field="type"/></span>
-					
-				</li>
-				</g:if>
-			
+
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

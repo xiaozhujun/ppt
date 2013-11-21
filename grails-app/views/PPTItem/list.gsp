@@ -43,7 +43,14 @@
 
     <td><g:formatDate format="yyyy-MM-dd" date="${PPTItemInstance.endTime}" /></td>
 
-    <td><g:formatBoolean boolean="${PPTItemInstance.shouldShow}" /></td>
+    <td>
+        <g:if test="${PPTItemInstance?.shouldShow}">
+            是
+        </g:if>
+        <g:else>
+            否
+        </g:else>
+    </td>
 
     </tr>
 </g:each>
