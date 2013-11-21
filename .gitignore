@@ -7,6 +7,5 @@ target
 config
 description
 target
-application.properties
 .classpath
 .project
